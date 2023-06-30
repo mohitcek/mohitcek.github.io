@@ -1,44 +1,77 @@
 ---
 layout: post
-title:  "Projects - IITK"
+title:  "Projects"
 date:   2022-12-28 15:24:20 -0500
 categories: jekyll update
 ---
+# Johns Hopkins University
 
-# Master's Thesis: Physical Parameter Estimation of Non-Classical Damped System from Spatially Incomplete Mode Parameters 	
+## UQpy – Python toolbox
+(Jan 2018 – Present)
+- UQpy (Uncertainty Quantification with Python) is a general-purpose Python toolbox for modeling uncertainty in physical and mathematical systems
+- Developed modules with various methods for sampling techniques, surrogate modeling, and sensitivity analysis
+- Sequential learning algorithms based on the surrogate modeling are computationally more efficient for complex models, ran these models on Maryland Advanced Research Computing Center (MARCC) server using UQpy tools
+- UQpy provides tools such as Refined Stratified Sampling (RSS), Gradient Enhanced-RSS (GE-RSS) and Adaptive Kriging – Monte Carlo Simulation (AKMCS) for sequential learning algorithm
+
+## Large Scale Boundary Layer Wind Tunnel (BLWT) Experiments
+(Jan 2020 – Present)
+- Developed a semi-automated framework to conduct high-volume through-put experiments using a wind tunnel facility at the University of Florida
+- A machine learning based framework sequentially guides the experiments by selecting the next roughness terrain
+- Framework has been explored with various active learning functions to identify different roughness terrains which generate wind profile with similar second-order properties
+- Various learning functions have been applied to large-scale experimental models to improve surrogate fit and sensitivity analysis has been done based on Sobol Indices.
+
+## Adaptive Surrogate Model Construction for Efficient Global Sensitivity Analysis
+(July 2021 – Dec 2022)
+- Developing an algorithm to tackle the Sensitivity Analysis in case of computationally expensive models by utilizing the characteristics of surrogates and Sobol Indices
+- A proposed active learning function adaptively learns new samples based on complete available data and reduces the uncertainty in Sobol Indices
+
+## Study on Effects of Imperfections in Ship Grillage Structure using FEM model
+(Dec 2019 – Dec 2020)
+- The main aim is to study the behavior of ship grillage in the nonlinear region due to different types of imperfections (plate, web, and flange imperfections)
+- Redundant imperfections can be identified, using adaptive Sensitivity Analysis, and removed to improve the model
+- GE-RSS method can reduce the uncertainty(variance) in the ultimate strength or other quantity of interest by adaptively learning samples using gradient estimates
+
+## Gradient Enhanced-Refined Stratified Sampling using Voronoi Stratification
+(Aug 2018 – May 2019)
+- Developed an efficient learning algorithm to extend the existing GE-RSS method in the case of Voronoi stratification
+- The algorithm aims to adaptively generate new samples to reduce the (uncertainty) output variance
+- The critical aspect is to approximately compute the gradient at the centroid of each Voronoi cell using a surrogate model and use it to identify the contribution of each cell to the output variance
+
+# Indian Institute of Technology Kanpur (IITK)
+
+## Master's Thesis: Physical Parameter Estimation of Non-Classical Damped System from Spatially Incomplete Mode Parameters 	
 (May 2016 – Apr 2017)
 - Identified physical parameters of non-classically damped spring-mass systems using test vibration data, which would provide a better estimate of the system’s performance under dynamic loading 
 - Identification of mode shapes in different cases of non-classically damped system with incomplete instrumentation, i.e. when not all DOFs of the system are excited or observed
 - Established the minimum instrumentation necessary for identifying the complete set of physical parameters
 - The proposed method identifies exact physical parameters for noise-free spatially incomplete modal parameters and has acceptable errors when data is corrupted by noise.
 
-
-# Finite Element Analysis of Concrete Wall 
+## Finite Element Analysis of Concrete Wall 
 (Mar 2016 – Apr 2016)
 - Applied the basic concepts of FEMA to understand the behavior of concrete wall under in-plane loading
 - Used a FEMA software ABAQUS to model concrete wall with different shapes of opening. Further, observed the behavior of shape of openings on concrete walls under in-plane loading
 - Discussed about the failure mode and maximum stress developed in case of different openings
 
-# Vibration Controlling Dampers 
+## Vibration Controlling Dampers 
 (Mar 2016 – Apr 2016)
 - Studied about the different types of dampers and their need to dissipate seismic energy to reduce damages
 - Modeled different types of dampers - Friction, Viscous and Steel dampers for analysis of shear type buildings
 - Discussed about various limitations in modeling of above-mentioned types of dampers
 
-# Mortar-less Masonry and Interlocking Blocks 
+## Mortar-less Masonry and Interlocking Blocks 
 (Mar 2015 – Apr 2015)
 - Studied the disadvantages of conventional masonry and need for alternate construction method such as mortar less masonry
 - Investigated about the performance of constructed dry stack masonry walls under axial, shear and flexural loading
 - Modes of failure of masonry walls were also observed for different type of loadings
 
-# Control establishment and Mapping using GPS and Total Station 
+## Control establishment and Mapping using GPS and Total Station 
 (Oct 2014 – Nov 2014)
 - Worked with a team of 6 member handled various instruments such as Total station, Levelling, GPS
 - Created a UDS program to store relative/local coordinates of almost 470 point, which represents land feature in academic area
 - Corrected elevation using Levelling from a Bench Mark and coordinates of control points was measured again using GPS
 - Multi-date data was aggregated into suitable files and imported into QGIS software to create a topographical map
 
-# Design Project – Industrial Building	
+## Design Project – Industrial Building	
 (Oct 2014 – Nov 2014)
 - Worked in a team of 6 students, performing a structural analysis of the given building for different load cases.
 - Designed elements of industrial building like top and bottom chord, crane girder, base plate & connections.
