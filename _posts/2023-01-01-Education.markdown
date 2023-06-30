@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Education"
-date:   2022-12-28 15:24:20 -0500
+date:   2023-06-30 15:24:20 -0500
 categories: jekyll update
 ---
 
@@ -15,7 +15,7 @@ categories: jekyll update
 2\. M.Sc., Applied Mathematics and Statistics 
 (Jan 2021-Dec 2022)
 - Major: Probability Theory
-- Relevant Coursework: Monte Carlo Methods, Machine Leaning I, Bayesian Statistics, Stochastic processes, Nonlinear Optimization II, Computing for Applied Mathematics, Introduction to Statistics  
+- Relevant Coursework: Monte Carlo Methods, Machine Learning I, Bayesian Statistics, Stochastic Processes, Nonlinear Optimization II, Computing for Applied Mathematics, Introduction to Statistics  
 
 
 3\. M.Sc., Civil and Systems Engineering 
@@ -37,11 +37,22 @@ ________________________________________________________________________________
 
 # TECHNICAL SKILLS
 
-- Language: Python (5 years), SQL, C++
-- Software: MATLAB, ABAQUS, STAAD.Pro, AutoCAD, Excel
+- Language: Python (6 years), C++, SQL
 - Developer Tools: PyCharm, CLion, GIT
-- Python Libraries: PyTorch, TensorFlow, Scikit-Learn, Pandas, Scipy, Numpy, Matplotlib
+- Software: MATLAB, ABAQUS, STAAD.Pro, AutoCAD, Excel
+- Python Libraries: PyTorch, TensorFlow, Scikit-Learn, Pandas, Scipy, Numpy, Matplotli
 
+__________________________________________________________________________________________
+
+# Certification
+
+- [Microsoft Certified: Azure Data Scientist Associate](https://www.credly.com/badges/d45a4b2d-99d4-4b45-8687-f289493890d2)
+- [Engineer in Training (FE Civil)](https://account.ncees.org/rn/2242928-1469241-580bcec)
+- [Deep Learning Specialization](https://www.coursera.org/account/accomplishments/specialization/certificate/L6DTZARWGU2X)
+- [Sequence Models](https://www.coursera.org/account/accomplishments/certificate/V3WSDT3YPHH7)
+- [Convolutional Neural Network](https://www.coursera.org/account/accomplishments/certificate/8P6H64TE4FBH)
+- [Practical Machine Learning](https://www.coursera.org/account/accomplishments/certificate/QKTCJMXWXQH3)
+- [Introduction to DevSecOps](https://www.coursera.org/account/accomplishments/certificate/FGDD7JH9CVCA)
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
