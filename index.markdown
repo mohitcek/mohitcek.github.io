@@ -2,9 +2,8 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-layout: page
+layout: home
 title: Experience
-permalink: /about/
 ---
 
 My intention for this webpage is simple and straightforward. I aim to share my academic journey as a fresher at IITK with a graduate student at JHU. I embarked on this journey nearly a decade ago, in 2012, and have been fortunate to engage in enriching projects and clubs at both universities. On this webpage, you can catch a glimpse of the various projects and academic programs I have completed. I have also provided a concise summary of my personal life, which you can explore on the _Academic Life_ page. Additionally, you'll find a collection of posts that delve into different aspects of my life.
