@@ -3,22 +3,9 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
-title: Academic Life
+title: Experience
 ---
 
-My intension for this webpage is simple and straightforward. I wish to share my academic 
-life as a fresher (at IITK) to a graduate student (at JHU). I started this journey almost 
-10 years ago (in 2012) and I have been fortunate enough to be part of delightful projects and clubs at 
-both the university. Here, you can get a glimpse of different projects and academic programs 
-that I have completed. I have shared a brief summary of my personal life, feel free to check 
-that out at the _Academic Life_ page. Further, I have shared different posts that shares different 
-aspects of my life. 
+My intention for this webpage is simple and straightforward. I aim to share my academic journey as a fresher at IITK with a graduate student at JHU. I embarked on this journey nearly a decade ago, in 2012, and have been fortunate to engage in enriching projects and clubs at both universities. On this webpage, you can catch a glimpse of the various projects and academic programs I have completed. I have also provided a concise summary of my personal life, which you can explore on the _Academic Life_ page. Additionally, you'll find a collection of posts that delve into different aspects of my life.
 
-
-The first post is about my education background. I have finished five academic programs in last 10 years, 
-at Hopkins and IIT, Kanpur. The second post talks about all the academic projects at Johns Hopkins University. 
-If you are enthusiastic about Uncertainty Quantification, check the second post, you can find a collect of 
-interesting projects. The third post briefly explain the academic project at IIT, Kanpur. My master's thesis 
-was related Structural Health Monitoring (SHM) and other projects are from different core civil course projects.
-Then the post on Professional Experience talk through my experience at two civil internship. And the last post 
-talks about an extracurricular activity, i.e. Basketball.
+The initial post provides information about my educational background, highlighting the completion of five academic programs over the past decade at both Johns Hopkins University and IIT Kanpur. The second post focuses on academic projects specifically undertaken at Johns Hopkins University. If you have a keen interest in Uncertainty Quantification, I recommend checking out the second post, as it contains a compilation of intriguing projects in that field. The third post briefly describes an academic project conducted at IIT Kanpur, where my master's thesis centered around Structural Health Monitoring (SHM), alongside other projects related to various core civil courses. Moving on, the post dedicated to Professional Experience recounts my involvement in two civil internships. Lastly, the concluding post sheds light on an extracurricular activity of mine, namely basketball.
