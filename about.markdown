@@ -1,7 +1,6 @@
 ---
-layout: page
+layout: home
 title: My Journey
-permalink: /about/
 ---
 ![MSC](images/G49A2494.jpg){: width="400" }
 
