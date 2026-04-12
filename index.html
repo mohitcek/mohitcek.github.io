@@ -4,25 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohit Singh Chauhan, PhD</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --accent: #2563eb;
-      --accent-light: #eff6ff;
-      --text-primary: #111827;
-      --text-secondary: #4b5563;
-      --text-muted: #9ca3af;
-      --border: #e5e7eb;
-      --bg: #ffffff;
-      --bg-soft: #f9fafb;
-      --tag-bg: #f1f5f9;
-      --tag-text: #475569;
+      --accent: #5b4cf5;
+      --accent-hover: #4338e0;
+      --accent-light: #ede9fe;
+      --text-primary: #0f0f0f;
+      --text-secondary: #555;
+      --text-muted: #999;
+      --border: #e8e8e8;
+      --bg: #fff;
+      --bg-soft: #f7f7f7;
+      --card-radius: 16px;
     }
 
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Inter', sans-serif;
       color: var(--text-primary);
@@ -36,380 +35,591 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
+      padding: 0 3rem;
     }
     .nav-inner {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 56px;
+      height: 60px;
     }
     .nav-logo {
-      font-weight: 600;
-      font-size: 15px;
+      font-weight: 800;
+      font-size: 16px;
       color: var(--text-primary);
       text-decoration: none;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
     }
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 2.5rem;
       list-style: none;
     }
     .nav-links a {
       text-decoration: none;
       color: var(--text-secondary);
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 500;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-cta {
+      background: var(--text-primary);
+      color: #fff !important;
+      padding: 8px 18px;
+      border-radius: 99px;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.8; color: #fff !important; }
 
-    /* ── LAYOUT ── */
+    /* ── CONTAINER ── */
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    section { padding: 72px 0; }
-    section + section { border-top: 1px solid var(--border); }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-    h2.section-title {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 36px;
-      letter-spacing: -0.02em;
+      padding: 0 3rem;
     }
 
     /* ── HERO ── */
     #hero {
-      padding: 96px 0 80px;
-      border-top: none;
+      padding: 80px 0 60px;
+      overflow: hidden;
     }
-    .hero-grid {
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 3rem;
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 3rem;
-      align-items: start;
-    }
-    .hero-photo {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center top;
-      border: 3px solid var(--border);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-      flex-shrink: 0;
+      grid-template-columns: 1fr 420px;
+      gap: 4rem;
+      align-items: center;
     }
     .hero-name {
-      font-size: 42px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
+      font-size: 44px;
+      font-weight: 900;
+      letter-spacing: -0.035em;
       line-height: 1.1;
-      margin-bottom: 8px;
-    }
-    .hero-title {
-      font-size: 17px;
-      color: var(--accent);
-      font-weight: 500;
       margin-bottom: 20px;
+      color: var(--text-primary);
     }
+    .hero-name span { color: var(--accent); }
     .hero-bio {
       font-size: 15.5px;
       color: var(--text-secondary);
-      line-height: 1.75;
-      max-width: 640px;
-      margin-bottom: 28px;
+      line-height: 1.8;
+      margin-bottom: 32px;
+      max-width: 520px;
     }
-    .hero-links {
+    .hero-actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+      align-items: center;
     }
-    .btn {
+    .btn-pill {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 9px 18px;
-      border-radius: 8px;
-      font-size: 13.5px;
-      font-weight: 500;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 99px;
+      font-size: 14px;
+      font-weight: 600;
       text-decoration: none;
       transition: all 0.2s;
     }
-    .btn-primary {
-      background: var(--accent);
+    .btn-dark {
+      background: var(--text-primary);
       color: #fff;
     }
-    .btn-primary:hover { background: #1d4ed8; }
-    .btn-outline {
+    .btn-dark:hover { background: #333; }
+    .btn-ghost {
       border: 1.5px solid var(--border);
       color: var(--text-secondary);
       background: #fff;
     }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-ghost:hover { border-color: var(--text-primary); color: var(--text-primary); }
 
-    /* Stats strip */
-    .stats-strip {
+    /* Hero image panel */
+    .hero-visual {
+      position: relative;
+    }
+    .hero-photo-wrap {
+      background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 50%, #c4b5fd 100%);
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
       display: flex;
-      gap: 2.5rem;
-      margin-top: 44px;
-      padding-top: 36px;
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: center;
     }
-    .stat { text-align: left; }
-    .stat-number {
-      font-size: 26px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .hero-badge {
+      position: absolute;
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-badge-tl {
+      top: -16px;
+      left: -20px;
+    }
+    .hero-badge-br {
+      bottom: 24px;
+      right: -20px;
+    }
+    .badge-icon { font-size: 22px; line-height: 1; }
+    .badge-num {
+      font-size: 16px;
+      font-weight: 800;
       color: var(--text-primary);
+      letter-spacing: -0.02em;
+      line-height: 1;
     }
-    .stat-label {
-      font-size: 12px;
+    .badge-label {
+      font-size: 11px;
       color: var(--text-muted);
-      margin-top: 2px;
       font-weight: 500;
     }
 
+    /* ── FEATURED IN strip ── */
+    .featured-strip {
+      padding: 36px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-soft);
+    }
+    .featured-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 3rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .featured-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+    .featured-logos {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .featured-logo {
+      font-size: 13px;
+      font-weight: 700;
+      color: #aaa;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .featured-logo:hover { color: var(--text-primary); }
+
+    /* ── SECTION HEADERS ── */
+    .section-wrap { padding: 88px 0; }
+    .section-wrap + .section-wrap { border-top: 1px solid var(--border); }
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 48px;
+      gap: 1rem;
+    }
+    .section-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    h2.section-title {
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text-primary);
+    }
+    .section-link {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-decoration: none;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
+    }
+    .section-link:hover { color: var(--accent); }
+
     /* ── EXPERIENCE ── */
-    .exp-item { margin-bottom: 44px; }
-    .exp-item:last-child { margin-bottom: 0; }
-    .exp-header {
+    .exp-grid { display: flex; flex-direction: column; gap: 32px; }
+    .exp-card {
+      background: var(--bg-soft);
+      border: 1.5px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 28px 32px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .exp-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 24px rgba(91,76,245,0.08);
+    }
+    .exp-card-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
+      margin-bottom: 12px;
       gap: 1rem;
-      margin-bottom: 4px;
     }
     .exp-company {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-    .exp-period {
-      font-size: 13px;
-      color: var(--text-muted);
-      white-space: nowrap;
-      margin-top: 3px;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
     .exp-role {
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 13.5px;
       color: var(--accent);
-      margin-bottom: 12px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .exp-period {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+      white-space: nowrap;
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 99px;
     }
     .exp-desc {
-      font-size: 14.5px;
+      font-size: 14px;
       color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 14px;
+      line-height: 1.75;
+      margin-bottom: 16px;
     }
-    .highlight-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 4px 11px;
-      border-radius: 99px;
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
       font-size: 12px;
-      font-weight: 500;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 99px;
+      background: #fff;
+      border: 1.5px solid var(--border);
+      color: var(--text-secondary);
+    }
+    .tag-accent {
       background: var(--accent-light);
+      border-color: transparent;
       color: var(--accent);
-      margin: 3px 4px 3px 0;
     }
 
     /* ── OPEN SOURCE ── */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
     }
     .project-card {
       border: 1.5px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      border-radius: var(--card-radius);
+      overflow: hidden;
       text-decoration: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     }
     .project-card:hover {
       border-color: var(--accent);
-      box-shadow: 0 4px 20px rgba(37,99,235,0.08);
+      box-shadow: 0 8px 32px rgba(91,76,245,0.12);
+      transform: translateY(-3px);
     }
-    .project-icon {
-      font-size: 28px;
+    .project-thumb {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
       line-height: 1;
     }
+    .thumb-uqlm  { background: linear-gradient(135deg, #ede9fe, #c4b5fd); }
+    .thumb-lang  { background: linear-gradient(135deg, #ecfdf5, #6ee7b7); }
+    .thumb-uqpy  { background: linear-gradient(135deg, #eff6ff, #93c5fd); }
+    .project-body { padding: 20px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
     .project-name {
-      font-size: 16px;
-      font-weight: 700;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
       color: var(--text-primary);
     }
     .project-desc {
-      font-size: 13.5px;
+      font-size: 13px;
       color: var(--text-secondary);
-      line-height: 1.6;
+      line-height: 1.65;
       flex: 1;
     }
     .project-meta {
       display: flex;
-      gap: 12px;
-      margin-top: 4px;
+      gap: 14px;
+      margin-top: 6px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
     }
-    .meta-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
+    .meta-item {
       font-size: 12px;
       color: var(--text-muted);
-      font-weight: 500;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      overflow: hidden;
+    }
+    .stat-cell {
+      background: var(--bg-soft);
+      padding: 28px;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--text-primary);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
     /* ── PUBLICATIONS ── */
+    .pub-list { display: flex; flex-direction: column; }
     .pub-item {
-      padding: 20px 0;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 24px;
+      padding: 28px 0;
       border-bottom: 1px solid var(--border);
+      align-items: start;
     }
     .pub-item:first-child { padding-top: 0; }
-    .pub-item:last-child { border-bottom: none; }
+    .pub-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .pub-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      padding-top: 2px;
+      min-width: 28px;
+    }
     .pub-title {
-      font-size: 14.5px;
-      font-weight: 600;
+      font-size: 15px;
+      font-weight: 700;
       color: var(--text-primary);
-      margin-bottom: 5px;
-      line-height: 1.5;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+      line-height: 1.45;
     }
     .pub-authors {
       font-size: 13px;
       color: var(--text-secondary);
-      margin-bottom: 6px;
+      margin-bottom: 10px;
     }
-    .pub-venue {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--accent);
-      background: var(--accent-light);
-      padding: 2px 9px;
-      border-radius: 4px;
-      margin-right: 8px;
+    .pub-venues { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .venue-badge {
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 6px;
     }
+    .venue-blue  { background: var(--accent-light); color: var(--accent); }
+    .venue-green { background: #ecfdf5; color: #059669; }
+    .venue-gray  { background: var(--bg-soft); color: var(--text-secondary); border: 1px solid var(--border); }
     .pub-link {
       font-size: 12.5px;
       color: var(--text-muted);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
     }
     .pub-link:hover { color: var(--accent); }
 
     /* ── EDUCATION ── */
-    .edu-item {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--border);
-      align-items: start;
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .edu-card {
+      background: var(--bg-soft);
+      border: 1.5px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 28px;
     }
-    .edu-item:first-child { padding-top: 0; }
-    .edu-item:last-child { border-bottom: none; }
     .edu-school {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 4px;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
     }
-    .edu-degree {
+    .edu-location {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .edu-degrees { display: flex; flex-direction: column; gap: 10px; }
+    .edu-degree-item { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+    .edu-degree-name {
       font-size: 13.5px;
       color: var(--text-secondary);
-      line-height: 1.5;
+      line-height: 1.4;
     }
     .edu-year {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-muted);
+      font-weight: 600;
       white-space: nowrap;
-      text-align: right;
     }
 
-    /* ── AWARDS ── */
-    .award-item {
+    /* Award */
+    .award-card {
+      margin-top: 24px;
+      background: linear-gradient(135deg, #ede9fe 0%, #faf5ff 100%);
+      border: 1.5px solid #ddd6fe;
+      border-radius: var(--card-radius);
+      padding: 28px 32px;
       display: flex;
-      gap: 16px;
-      padding: 20px;
-      background: var(--bg-soft);
-      border-radius: 12px;
-      border: 1.5px solid var(--border);
+      gap: 20px;
+      align-items: flex-start;
     }
-    .award-icon { font-size: 24px; line-height: 1; flex-shrink: 0; }
+    .award-trophy { font-size: 36px; line-height: 1; flex-shrink: 0; }
     .award-title {
-      font-size: 14.5px;
-      font-weight: 600;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
       color: var(--text-primary);
-      margin-bottom: 5px;
     }
-    .award-desc {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
+    .award-desc { font-size: 13px; color: #6d5ace; line-height: 1.65; }
 
     /* ── CONTACT ── */
-    #contact {
-      background: var(--bg-soft);
-      border-radius: 16px;
-      margin: 0 0 72px;
-      padding: 56px 48px;
+    .contact-card {
+      background: var(--text-primary);
+      border-radius: 24px;
+      padding: 72px 60px;
       text-align: center;
+      color: #fff;
+      margin: 88px 0;
     }
-    #contact h2 { margin-bottom: 12px; }
+    .contact-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 16px;
+    }
+    .contact-heading {
+      font-size: 44px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
     .contact-sub {
       font-size: 15px;
-      color: var(--text-secondary);
-      margin-bottom: 32px;
+      color: #aaa;
+      margin-bottom: 36px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
     }
     .contact-links {
       display: flex;
       justify-content: center;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
     }
+    .btn-white {
+      background: #fff;
+      color: var(--text-primary);
+    }
+    .btn-white:hover { background: #f0f0f0; }
+    .btn-outline-white {
+      border: 1.5px solid #444;
+      color: #ccc;
+      background: transparent;
+    }
+    .btn-outline-white:hover { border-color: #fff; color: #fff; }
 
     /* ── FOOTER ── */
     footer {
       text-align: center;
-      padding: 28px;
+      padding: 32px;
       font-size: 13px;
       color: var(--text-muted);
       border-top: 1px solid var(--border);
     }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .hero-name { font-size: 40px; }
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 640px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-photo { width: 120px; height: 120px; }
-      .hero-name { font-size: 30px; }
-      nav .nav-links { display: none; }
-      #contact { padding: 36px 24px; }
-      .stats-strip { gap: 1.5rem; }
-      .exp-header { flex-direction: column; gap: 4px; }
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .container { padding: 0 1.5rem; }
+      .hero-inner { padding: 0 1.5rem; }
+      .featured-inner { padding: 0 1.5rem; }
+      .hero-name { font-size: 32px; }
+      h2.section-title { font-size: 28px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .contact-card { padding: 48px 24px; }
+      .contact-heading { font-size: 30px; }
     }
   </style>
 </head>
@@ -424,293 +634,345 @@
       <li><a href="#opensource">Open Source</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
     </ul>
   </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div>
-        <p class="section-label">AI Safety · Uncertainty Quantification · Open Source</p>
-        <h1 class="hero-name">Mohit Singh Chauhan, PhD</h1>
-        <p class="hero-title">Senior Data Scientist · CVS Health &nbsp;|&nbsp; Pittsburgh, PA</p>
-        <p class="hero-bio">
-          I work at the intersection of AI safety and applied machine learning, with a focus on making large language models more reliable and trustworthy — especially in high-stakes domains like healthcare. My work centers on two core problems: detecting when LLMs hallucinate, and rigorously measuring bias in their outputs.
-        </p>
-        <p class="hero-bio" style="margin-top: -10px;">
-          My expertise is rooted in uncertainty quantification and probabilistic modeling — a foundation built through a PhD in Machine Learning at Johns Hopkins. At CVS Health, I co-founded the enterprise AI Research program and channeled this background into building <strong>UQLM</strong> and <strong>LangFair</strong>: open-source frameworks for Responsible AI.
-        </p>
-        <div class="hero-links">
-          <a class="btn btn-primary" href="mailto:mohitcek@gmail.com">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            Get in Touch
-          </a>
-          <a class="btn btn-outline" href="https://linkedin.com/in/mohitcek/" target="_blank" rel="noopener">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            LinkedIn
-          </a>
-          <a class="btn btn-outline" href="https://github.com/mohitcek" target="_blank" rel="noopener">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-            GitHub
-          </a>
-        </div>
-      </div>
-      <div>
-        <img class="hero-photo" src="profile.jpg" alt="Mohit Singh Chauhan" />
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="container">
-    <p class="section-label">Career</p>
-    <h2 class="section-title">Experience</h2>
-
-    <!-- CVS Health -->
-    <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-company">CVS Health</div>
-          <div class="exp-role">Senior Data Scientist</div>
-        </div>
-        <div class="exp-period">Apr 2024 – Present</div>
-      </div>
-      <p class="exp-desc">
-        Selected as one of the founding scientists to establish CVS Health's enterprise AI Research program, a cross-functional initiative now supporting 300+ data scientists. Contributed to four enterprise-wide AI safety toolkits, co-authored six research papers, and directly contributed to eliminating <strong>$2–3M in annual vendor dependency</strong> by building in-house AI safety infrastructure.
+  <div class="hero-inner">
+    <div>
+      <h1 class="hero-name">Hi, I'm <span>Mohit Singh Chauhan</span></h1>
+      <p class="hero-bio">
+        I work at the intersection of AI safety and applied machine learning — focused on making large language models more reliable and trustworthy in high-stakes domains like healthcare. My expertise spans hallucination detection, uncertainty quantification, and bias evaluation, grounded in a PhD from Johns Hopkins.
       </p>
-      <div>
-        <span class="highlight-pill">🔍 UQLM — Hallucination Detection</span>
-        <span class="highlight-pill">⚖️ LangFair — Bias & Fairness</span>
-        <span class="highlight-pill">CHAI Adoption</span>
-        <span class="highlight-pill">NeurIPS 2025</span>
-        <span class="highlight-pill">PyData Global 2025</span>
-      </div>
-    </div>
-
-    <!-- Johns Hopkins -->
-    <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-company">Johns Hopkins University</div>
-          <div class="exp-role">PhD Researcher</div>
-        </div>
-        <div class="exp-period">Sep 2017 – Sep 2023</div>
-      </div>
-      <p class="exp-desc">
-        Led software development of <strong>UQpy</strong>, a Python toolbox for uncertainty quantification in physical and mathematical systems, achieving 100,000+ downloads via PyPI and Conda-forge. Developed novel Bayesian Optimization algorithms for Global Sensitivity Analysis, conducted large-scale wind tunnel experiments guided by ML-based active learning frameworks, and pioneered a MUSIC acquisition function reducing experimental design size for computationally expensive models.
-      </p>
-      <div>
-        <span class="highlight-pill">🐍 UQpy (100K+ downloads)</span>
-        <span class="highlight-pill">Bayesian Optimization</span>
-        <span class="highlight-pill">Gaussian Process Regression</span>
-        <span class="highlight-pill">Wind Engineering</span>
-      </div>
-    </div>
-
-    <!-- Apziva -->
-    <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-company">Apziva</div>
-          <div class="exp-role">AI Resident</div>
-        </div>
-        <div class="exp-period">Nov 2023 – Feb 2024</div>
-      </div>
-      <p class="exp-desc">
-        Designed and implemented machine learning models on real-world projects from global organizations. Led development of a CNN-based pattern recognition model for page-flip detection from low-resolution mobile images, achieving 93% classification accuracy, with model deployment via Flask and performance refinement using Grad-CAM.
-      </p>
-      <div>
-        <span class="highlight-pill">Computer Vision</span>
-        <span class="highlight-pill">CNN</span>
-        <span class="highlight-pill">Flask Deployment</span>
-        <span class="highlight-pill">Grad-CAM</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- OPEN SOURCE -->
-<section id="opensource">
-  <div class="container">
-    <p class="section-label">Open Source</p>
-    <h2 class="section-title">Projects</h2>
-    <div class="projects-grid">
-
-      <a class="project-card" href="https://github.com/cvs-health/uqlm" target="_blank" rel="noopener">
-        <div class="project-icon">🔍</div>
-        <div class="project-name">UQLM</div>
-        <div class="project-desc">
-          Uncertainty Quantification for Language Models — a black-box, white-box, LLM Judge, and ensemble scoring toolkit for hallucination detection. Adopted for enterprise-wide model assessments at CVS Health.
-        </div>
-        <div class="project-meta">
-          <span class="meta-badge">⭐ 1.1K+ stars</span>
-          <span class="meta-badge">⬇️ 18K+ downloads</span>
-        </div>
-        <div><span class="highlight-pill">Published in JMLR</span></div>
-      </a>
-
-      <a class="project-card" href="https://github.com/cvs-health/langfair" target="_blank" rel="noopener">
-        <div class="project-icon">⚖️</div>
-        <div class="project-name">LangFair</div>
-        <div class="project-desc">
-          A Python package for assessing bias and fairness in LLM use cases. Adopted by the Coalition for Health AI (CHAI) as a recommended toolkit for bias evaluation. Integrated with the LangChain ecosystem.
-        </div>
-        <div class="project-meta">
-          <span class="meta-badge">⭐ 250+ stars</span>
-          <span class="meta-badge">⬇️ 30K+ downloads</span>
-        </div>
-        <div><span class="highlight-pill">CHAI Standard</span><span class="highlight-pill">Published in JOSS</span></div>
-      </a>
-
-      <a class="project-card" href="https://github.com/SURGroup/UQpy" target="_blank" rel="noopener">
-        <div class="project-icon">🐍</div>
-        <div class="project-name">UQpy</div>
-        <div class="project-desc">
-          A powerful Python toolbox for modeling uncertainty in physical and mathematical systems. Features GaussianProcessRegression and AdaptiveKriging classes for Monte Carlo Sampling frameworks.
-        </div>
-        <div class="project-meta">
-          <span class="meta-badge">⬇️ 100K+ downloads</span>
-        </div>
-        <div><span class="highlight-pill">PyPI · Conda-forge</span></div>
-      </a>
-
-    </div>
-
-    <!-- Stats Strip -->
-    <div class="stats-strip">
-      <div class="stat">
-        <div class="stat-number">1.3K+</div>
-        <div class="stat-label">GitHub Stars</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">80K+</div>
-        <div class="stat-label">PyPI Downloads</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">10</div>
-        <div class="stat-label">Publications</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">219</div>
-        <div class="stat-label">Citations</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PUBLICATIONS -->
-<section id="publications">
-  <div class="container">
-    <p class="section-label">Research</p>
-    <h2 class="section-title">Publications <span style="font-weight:400; font-size:16px; color:var(--text-muted);">— 10 papers · 219 citations</span></h2>
-
-    <div class="pub-item">
-      <div class="pub-title">Uncertainty Quantification for Language Models: A Suite of Black-Box, White-Box, LLM Judge, and Ensemble Scorers</div>
-      <div class="pub-authors">D. Bouchard &amp; <strong>M. S. Chauhan</strong> (2025)</div>
-      <span class="pub-venue">TMLR</span>
-      <span class="pub-venue" style="background:#f0fdf4; color:#16a34a;">NeurIPS 2025</span>
-      <a class="pub-link" href="https://arxiv.org/abs/2504.19254" target="_blank" rel="noopener">arXiv ↗</a>
-    </div>
-
-    <div class="pub-item">
-      <div class="pub-title">UQLM: A Python Package for Uncertainty Quantification in LLMs</div>
-      <div class="pub-authors">D. Bouchard, <strong>M. S. Chauhan</strong>, D. Skarbrevik, V. Bajaj, &amp; Z. Ahmad (2025)</div>
-      <span class="pub-venue">JMLR</span>
-      <a class="pub-link" href="https://arxiv.org/abs/2507.06196" target="_blank" rel="noopener">arXiv ↗</a>
-    </div>
-
-    <div class="pub-item">
-      <div class="pub-title">LangFair: A Python Package for Assessing Bias and Fairness in LLM Use Cases</div>
-      <div class="pub-authors">D. Bouchard, <strong>M. S. Chauhan</strong>, D. Skarbrevik, V. Bajaj, &amp; Z. Ahmad (2025)</div>
-      <span class="pub-venue">JOSS</span>
-      <a class="pub-link" href="https://joss.theoj.org/papers/10.21105/joss.07570" target="_blank" rel="noopener">DOI ↗</a>
-    </div>
-
-    <div class="pub-item">
-      <div class="pub-title">On Active Learning for Gaussian Process-based Global Sensitivity Analysis</div>
-      <div class="pub-authors"><strong>M. S. Chauhan</strong>, M. Ojeda-Tuz, R. Catarelli, K. Gurley, D. Tsapetis, &amp; M. Shields (2023)</div>
-      <span class="pub-venue">Reliability Eng. &amp; System Safety</span>
-      <a class="pub-link" href="https://arxiv.org/abs/2308.14220" target="_blank" rel="noopener">arXiv ↗</a>
-    </div>
-
-    <div class="pub-item" style="border-bottom:none; padding-bottom:0;">
-      <p style="font-size:13.5px; color:var(--text-muted);">Full list available on <a href="https://scholar.google.com" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; font-weight:500;">Google Scholar ↗</a></p>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="container">
-    <p class="section-label">Academic Background</p>
-    <h2 class="section-title">Education</h2>
-
-    <div class="edu-item">
-      <div>
-        <div class="edu-school">Johns Hopkins University · Baltimore, US</div>
-        <div class="edu-degree">
-          PhD, Civil Engineering (Focus: Machine Learning &amp; Wind Engineering)<br>
-          MSE, Applied Mathematics &amp; Statistics (Major: Probability Theory)<br>
-          MSE, Civil Engineering
-        </div>
-      </div>
-      <div class="edu-year">2017 – 2023</div>
-    </div>
-
-    <div class="edu-item">
-      <div>
-        <div class="edu-school">Indian Institute of Technology Kanpur · Kanpur, India</div>
-        <div class="edu-degree">
-          M.Tech, Civil Engineering (Focus: Structural)<br>
-          B.Tech, Civil Engineering
-        </div>
-      </div>
-      <div class="edu-year">2012 – 2017</div>
-    </div>
-
-    <!-- Award inline -->
-    <div style="margin-top: 32px;">
-      <div class="award-item">
-        <div class="award-icon">🏆</div>
-        <div>
-          <div class="award-title">Edwin D. &amp; Rachel Lowthian Endowed Fellowship — Johns Hopkins University (2017–2018)</div>
-          <div class="award-desc">Competitive merit-based endowed fellowship awarded to incoming PhD students demonstrating exceptional research potential. Provided $83,400 in total support, covering full tuition, stipend, and health coverage — awarded by the department chair upon admission.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" style="border-top: 1px solid var(--border); padding: 72px 0;">
-  <div class="container">
-    <div style="background: var(--bg-soft); border-radius: 16px; padding: 56px 48px; text-align: center; border: 1.5px solid var(--border);">
-      <p class="section-label" style="justify-content: center; display: block;">Let's Connect</p>
-      <h2 style="font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px;">Get in Touch</h2>
-      <p class="contact-sub">Open to collaborations, speaking opportunities, and research discussions in AI safety, LLM evaluation, and uncertainty quantification.</p>
-      <div class="contact-links">
-        <a class="btn btn-primary" href="mailto:mohitcek@gmail.com">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          mohitcek@gmail.com
+      <div class="hero-actions">
+        <a class="btn-pill btn-dark" href="mailto:mohitcek@gmail.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Get in Touch
         </a>
-        <a class="btn btn-outline" href="https://linkedin.com/in/mohitcek/" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <a class="btn-pill btn-ghost" href="https://linkedin.com/in/mohitcek/" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           LinkedIn
         </a>
-        <a class="btn btn-outline" href="https://github.com/mohitcek" target="_blank" rel="noopener">
+        <a class="btn-pill btn-ghost" href="https://github.com/mohitcek" target="_blank" rel="noopener">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
           GitHub
         </a>
       </div>
     </div>
+
+    <!-- Photo Panel -->
+    <div class="hero-visual">
+      <div class="hero-photo-wrap">
+        <img src="profile.jpg" alt="Mohit Singh Chauhan" />
+      </div>
+      <!-- Floating badges -->
+      <div class="hero-badge hero-badge-tl">
+        <div class="badge-icon">⭐</div>
+        <div>
+          <div class="badge-num">1.3K+</div>
+          <div class="badge-label">GitHub Stars</div>
+        </div>
+      </div>
+      <div class="hero-badge hero-badge-br">
+        <div class="badge-icon">📄</div>
+        <div>
+          <div class="badge-num">219</div>
+          <div class="badge-label">Citations</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
+
+<!-- EXPERIENCE -->
+<div class="section-wrap" id="experience">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="section-eyebrow">Career</p>
+        <h2 class="section-title">Experience</h2>
+      </div>
+    </div>
+    <div class="exp-grid">
+
+      <div class="exp-card">
+        <div class="exp-card-header">
+          <div>
+            <div class="exp-company">CVS Health</div>
+            <div class="exp-role">Senior Data Scientist</div>
+          </div>
+          <span class="exp-period">Apr 2024 – Present</span>
+        </div>
+        <p class="exp-desc">Selected as one of the founding scientists to establish CVS Health's enterprise AI Research program, now supporting 300+ data scientists. Built in-house AI safety infrastructure that eliminated <strong>$2–3M in annual vendor dependency</strong>, co-authored six research papers, and contributed to four enterprise-wide AI safety toolkits.</p>
+        <div class="tags">
+          <span class="tag tag-accent">🔍 UQLM</span>
+          <span class="tag tag-accent">⚖️ LangFair</span>
+          <span class="tag">CHAI Adoption</span>
+          <span class="tag">NeurIPS 2025</span>
+          <span class="tag">PyData Global 2025</span>
+          <span class="tag">LLM Safety</span>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-card-header">
+          <div>
+            <div class="exp-company">Johns Hopkins University</div>
+            <div class="exp-role">PhD Researcher</div>
+          </div>
+          <span class="exp-period">Sep 2017 – Sep 2023</span>
+        </div>
+        <p class="exp-desc">Led software development of <strong>UQpy</strong>, a Python toolbox for uncertainty quantification with 100,000+ downloads. Developed novel Bayesian Optimization algorithms for Global Sensitivity Analysis and pioneered ML-guided large-scale wind tunnel experiments at the University of Florida.</p>
+        <div class="tags">
+          <span class="tag tag-accent">🐍 UQpy</span>
+          <span class="tag">Bayesian Optimization</span>
+          <span class="tag">Gaussian Process Regression</span>
+          <span class="tag">Wind Engineering</span>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-card-header">
+          <div>
+            <div class="exp-company">Apziva</div>
+            <div class="exp-role">AI Resident</div>
+          </div>
+          <span class="exp-period">Nov 2023 – Feb 2024</span>
+        </div>
+        <p class="exp-desc">Designed and implemented ML models on projects from global organizations. Built a CNN-based page-flip detection model achieving <strong>93% classification accuracy</strong>, deployed via Flask, with performance improvements using Grad-CAM analysis.</p>
+        <div class="tags">
+          <span class="tag">Computer Vision</span>
+          <span class="tag">CNN</span>
+          <span class="tag">Flask Deployment</span>
+          <span class="tag">Grad-CAM</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- OPEN SOURCE -->
+<div class="section-wrap" id="opensource">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="section-eyebrow">Open Source</p>
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <a class="section-link" href="https://github.com/mohitcek" target="_blank" rel="noopener">View all on GitHub →</a>
+    </div>
+
+    <div class="projects-grid">
+      <a class="project-card" href="https://github.com/cvs-health/uqlm" target="_blank" rel="noopener">
+        <div class="project-thumb thumb-uqlm">🔍</div>
+        <div class="project-body">
+          <div class="project-name">UQLM</div>
+          <p class="project-desc">Uncertainty Quantification for Language Models — black-box, white-box, LLM Judge &amp; ensemble hallucination detection. Adopted enterprise-wide at CVS Health.</p>
+          <div class="project-meta">
+            <span class="meta-item">⭐ 1.1K+ stars</span>
+            <span class="meta-item">⬇️ 18K+ downloads</span>
+          </div>
+          <div style="margin-top:10px;"><span class="tag tag-accent" style="font-size:11px;">Published in JMLR</span></div>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://github.com/cvs-health/langfair" target="_blank" rel="noopener">
+        <div class="project-thumb thumb-lang">⚖️</div>
+        <div class="project-body">
+          <div class="project-name">LangFair</div>
+          <p class="project-desc">Python package for assessing bias &amp; fairness in LLM use cases. Adopted by CHAI as a Responsible AI industry standard. Integrated with the LangChain ecosystem.</p>
+          <div class="project-meta">
+            <span class="meta-item">⭐ 250+ stars</span>
+            <span class="meta-item">⬇️ 30K+ downloads</span>
+          </div>
+          <div style="margin-top:10px;">
+            <span class="tag tag-accent" style="font-size:11px;">CHAI Standard</span>
+            <span class="tag tag-accent" style="font-size:11px; margin-left:6px;">Published in JOSS</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://github.com/SURGroup/UQpy" target="_blank" rel="noopener">
+        <div class="project-thumb thumb-uqpy">🐍</div>
+        <div class="project-body">
+          <div class="project-name">UQpy</div>
+          <p class="project-desc">Powerful Python toolbox for modeling uncertainty in physical and mathematical systems. Features GaussianProcessRegression and AdaptiveKriging for Monte Carlo frameworks.</p>
+          <div class="project-meta">
+            <span class="meta-item">⬇️ 100K+ downloads</span>
+          </div>
+          <div style="margin-top:10px;"><span class="tag" style="font-size:11px;">PyPI · Conda-forge</span></div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="stats-row">
+      <div class="stat-cell">
+        <div class="stat-num">1.3K+</div>
+        <div class="stat-lbl">GitHub Stars</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">80K+</div>
+        <div class="stat-lbl">PyPI Downloads</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">10</div>
+        <div class="stat-lbl">Publications</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">219</div>
+        <div class="stat-lbl">Citations</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PUBLICATIONS -->
+<div class="section-wrap" id="publications">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="section-eyebrow">Research</p>
+        <h2 class="section-title">Publications</h2>
+      </div>
+      <a class="section-link" href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar →</a>
+    </div>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-num">01</div>
+        <div>
+          <div class="pub-title">Uncertainty Quantification for Language Models: A Suite of Black-Box, White-Box, LLM Judge, and Ensemble Scorers</div>
+          <div class="pub-authors">D. Bouchard &amp; <strong>M. S. Chauhan</strong> (2025)</div>
+          <div class="pub-venues">
+            <span class="venue-badge venue-blue">TMLR</span>
+            <span class="venue-badge venue-green">NeurIPS 2025</span>
+            <a class="pub-link" href="https://arxiv.org/abs/2504.19254" target="_blank" rel="noopener">arXiv ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">02</div>
+        <div>
+          <div class="pub-title">UQLM: A Python Package for Uncertainty Quantification in LLMs</div>
+          <div class="pub-authors">D. Bouchard, <strong>M. S. Chauhan</strong>, D. Skarbrevik, V. Bajaj, &amp; Z. Ahmad (2025)</div>
+          <div class="pub-venues">
+            <span class="venue-badge venue-blue">JMLR</span>
+            <a class="pub-link" href="https://arxiv.org/abs/2507.06196" target="_blank" rel="noopener">arXiv ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">03</div>
+        <div>
+          <div class="pub-title">LangFair: A Python Package for Assessing Bias and Fairness in LLM Use Cases</div>
+          <div class="pub-authors">D. Bouchard, <strong>M. S. Chauhan</strong>, D. Skarbrevik, V. Bajaj, &amp; Z. Ahmad (2025)</div>
+          <div class="pub-venues">
+            <span class="venue-badge venue-blue">JOSS</span>
+            <a class="pub-link" href="https://joss.theoj.org/papers/10.21105/joss.07570" target="_blank" rel="noopener">DOI ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">04</div>
+        <div>
+          <div class="pub-title">On Active Learning for Gaussian Process-based Global Sensitivity Analysis</div>
+          <div class="pub-authors"><strong>M. S. Chauhan</strong>, M. Ojeda-Tuz, R. Catarelli, K. Gurley, D. Tsapetis, &amp; M. Shields (2023)</div>
+          <div class="pub-venues">
+            <span class="venue-badge venue-gray">Reliability Eng. &amp; System Safety</span>
+            <a class="pub-link" href="https://arxiv.org/abs/2308.14220" target="_blank" rel="noopener">arXiv ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="section-wrap" id="education">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="section-eyebrow">Academic Background</p>
+        <h2 class="section-title">Education</h2>
+      </div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-school">Johns Hopkins University</div>
+        <div class="edu-location">Baltimore, US · 2017 – 2023</div>
+        <div class="edu-degrees">
+          <div class="edu-degree-item">
+            <span class="edu-degree-name">PhD, Civil Engineering<br><small style="color:var(--text-muted);">Focus: Machine Learning &amp; Wind Engineering</small></span>
+            <span class="edu-year">2023</span>
+          </div>
+          <div class="edu-degree-item">
+            <span class="edu-degree-name">MSE, Applied Mathematics &amp; Statistics<br><small style="color:var(--text-muted);">Major: Probability Theory</small></span>
+            <span class="edu-year">2022</span>
+          </div>
+          <div class="edu-degree-item">
+            <span class="edu-degree-name">MSE, Civil Engineering</span>
+            <span class="edu-year">2022</span>
+          </div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-school">IIT Kanpur</div>
+        <div class="edu-location">Kanpur, India · 2012 – 2017</div>
+        <div class="edu-degrees">
+          <div class="edu-degree-item">
+            <span class="edu-degree-name">M.Tech, Civil Engineering<br><small style="color:var(--text-muted);">Focus: Structural</small></span>
+            <span class="edu-year">2017</span>
+          </div>
+          <div class="edu-degree-item">
+            <span class="edu-degree-name">B.Tech, Civil Engineering</span>
+            <span class="edu-year">2016</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-trophy">🏆</div>
+      <div>
+        <div class="award-title">Edwin D. &amp; Rachel Lowthian Endowed Fellowship — Johns Hopkins University (2017–2018)</div>
+        <div class="award-desc">Competitive merit-based fellowship awarded to incoming PhD students demonstrating exceptional research potential. Provided $83,400 in total support covering full tuition, stipend, and health coverage — awarded by the department chair upon admission.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="container" id="contact">
+  <div class="contact-card">
+    <p class="contact-eyebrow">Let's Connect</p>
+    <h2 class="contact-heading">Open to Collabs<br/>&amp; Speaking</h2>
+    <p class="contact-sub">Interested in AI safety, LLM evaluation, uncertainty quantification, or responsible AI in healthcare? Let's talk.</p>
+    <div class="contact-links">
+      <a class="btn-pill btn-white" href="mailto:mohitcek@gmail.com">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        mohitcek@gmail.com
+      </a>
+      <a class="btn-pill btn-outline-white" href="https://linkedin.com/in/mohitcek/" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn-pill btn-outline-white" href="https://github.com/mohitcek" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</div>
 
 <footer>
   <p>© 2025 Mohit Singh Chauhan, PhD · Pittsburgh, PA</p>
