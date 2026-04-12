@@ -107,6 +107,16 @@
       gap: 3rem;
       align-items: start;
     }
+    .hero-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid var(--border);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      flex-shrink: 0;
+    }
     .hero-name {
       font-size: 42px;
       font-weight: 700;
@@ -394,6 +404,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       .hero-grid { grid-template-columns: 1fr; }
+      .hero-photo { width: 120px; height: 120px; }
       .hero-name { font-size: 30px; }
       nav .nav-links { display: none; }
       #contact { padding: 36px 24px; }
@@ -423,11 +434,14 @@
   <div class="container">
     <div class="hero-grid">
       <div>
-        <p class="section-label">AI Safety · Data Science · Research</p>
+        <p class="section-label">AI Safety · Uncertainty Quantification · Open Source</p>
         <h1 class="hero-name">Mohit Singh Chauhan, PhD</h1>
         <p class="hero-title">Senior Data Scientist · CVS Health &nbsp;|&nbsp; Pittsburgh, PA</p>
         <p class="hero-bio">
-          AI Safety researcher recognized nationally for pioneering contributions to LLM hallucination detection and bias evaluation. As a founding member of CVS Health's AI research program, I architected two open-source frameworks — <strong>LangFair</strong> and <strong>UQLM</strong> — that collectively earned 1.3K+ GitHub stars, 80K+ downloads, and adoption by the Coalition for Health AI (CHAI) as a Responsible AI industry standard. Author of 10 peer-reviewed publications with 219 citations, with work presented at NeurIPS 2025.
+          I work at the intersection of AI safety and applied machine learning, with a focus on making large language models more reliable and trustworthy — especially in high-stakes domains like healthcare. My work centers on two core problems: detecting when LLMs hallucinate, and rigorously measuring bias in their outputs.
+        </p>
+        <p class="hero-bio" style="margin-top: -10px;">
+          My expertise is rooted in uncertainty quantification and probabilistic modeling — a foundation built through a PhD in Machine Learning at Johns Hopkins. At CVS Health, I co-founded the enterprise AI Research program and channeled this background into building <strong>UQLM</strong> and <strong>LangFair</strong>: open-source frameworks now adopted as Responsible AI standards by the Coalition for Health AI (CHAI) and used by thousands of practitioners worldwide.
         </p>
         <div class="hero-links">
           <a class="btn btn-primary" href="mailto:mohitcek@gmail.com">
@@ -444,31 +458,11 @@
           </a>
         </div>
       </div>
+      <div>
+        <img class="hero-photo" src="profile.jpg" alt="Mohit Singh Chauhan" />
+      </div>
     </div>
 
-    <!-- Stats Strip -->
-    <div class="stats-strip">
-      <div class="stat">
-        <div class="stat-number">1.3K+</div>
-        <div class="stat-label">GitHub Stars</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">80K+</div>
-        <div class="stat-label">PyPI Downloads</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">10</div>
-        <div class="stat-label">Publications</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">219</div>
-        <div class="stat-label">Citations</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">NeurIPS '25</div>
-        <div class="stat-label">Presented At</div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -586,6 +580,26 @@
         <div><span class="highlight-pill">PyPI · Conda-forge</span></div>
       </a>
 
+    </div>
+
+    <!-- Stats Strip -->
+    <div class="stats-strip">
+      <div class="stat">
+        <div class="stat-number">1.3K+</div>
+        <div class="stat-label">GitHub Stars</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">80K+</div>
+        <div class="stat-label">PyPI Downloads</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">10</div>
+        <div class="stat-label">Publications</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">219</div>
+        <div class="stat-label">Citations</div>
+      </div>
     </div>
   </div>
 </section>
