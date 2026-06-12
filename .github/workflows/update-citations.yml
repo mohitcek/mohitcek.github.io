@@ -1,0 +1,72 @@
+name: Update live stats
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # every Monday 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install scholarly
+        run: pip install scholarly
+
+      - name: Update stats.json
+        run: |
+          python - <<'EOF'
+          import json, datetime, urllib.request
+
+          with open("stats.json") as f:
+              stats = json.load(f)
+
+          # ── PyPI all-time downloads via ClickPy public ClickHouse ──
+          try:
+              q = ("SELECT project, sum(count) AS total FROM pypi.pypi_downloads "
+                   "WHERE project IN ('uqlm','langfair','uqpy') "
+                   "GROUP BY project FORMAT JSON")
+              req = urllib.request.Request(
+                  "https://clickpy-clickhouse.clickhouse.com/?user=play",
+                  data=q.encode(), method="POST")
+              with urllib.request.urlopen(req, timeout=60) as r:
+                  data = json.load(r)
+              for row in data.get("data", []):
+                  n = int(row["total"])
+                  if n > 0:
+                      stats.setdefault("downloads", {})[row["project"]] = n
+              print("Downloads:", stats.get("downloads"))
+          except Exception as e:
+              print(f"PyPI fetch failed, keeping old values: {e}")
+
+          # ── Google Scholar citations ──
+          try:
+              from scholarly import scholarly
+              author = scholarly.search_author_id("U70XbZoAAAAJ")
+              author = scholarly.fill(author, sections=["basics", "indices"])
+              citations = author.get("citedby")
+              if citations:
+                  stats["citations"] = citations
+              print("Citations:", citations)
+          except Exception as e:
+              print(f"Scholar fetch failed, keeping old value: {e}")
+
+          stats["updated"] = datetime.date.today().isoformat()
+          with open("stats.json", "w") as f:
+              json.dump(stats, f, indent=2)
+          EOF
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add stats.json
+          git diff --cached --quiet || (git commit -m "chore: update live stats" && git push)

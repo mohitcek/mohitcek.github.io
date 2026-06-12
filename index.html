@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mohit Singh Chauhan, PhD</title>
+  <title>Mohit Singh Chauhan, PhD — AI Safety & Machine Learning</title>
+  <meta name="description" content="Mohit Singh Chauhan, PhD — Senior Data Scientist at CVS Health working on AI safety, LLM hallucination detection, uncertainty quantification, and bias evaluation. Creator of UQLM, LangFair, and UQpy. Johns Hopkins PhD." />
+  <meta name="author" content="Mohit Singh Chauhan" />
+  <link rel="canonical" href="https://mohitcek.github.io/" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mohit Singh Chauhan, PhD — AI Safety & Machine Learning" />
+  <meta property="og:description" content="AI safety researcher focused on making LLMs reliable in high-stakes domains. Creator of UQLM, LangFair, and UQpy. Johns Hopkins PhD." />
+  <meta property="og:url" content="https://mohitcek.github.io/" />
+  <meta property="og:image" content="https://mohitcek.github.io/profile.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mohit Singh Chauhan, PhD — AI Safety & Machine Learning" />
+  <meta name="twitter:description" content="AI safety researcher focused on making LLMs reliable in high-stakes domains. Creator of UQLM, LangFair, and UQpy." />
+  <meta name="twitter:image" content="https://mohitcek.github.io/profile.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%235b4cf5'/%3E%3Ctext x='50' y='71' font-size='60' font-weight='800' font-family='Inter,Arial,sans-serif' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E" />
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -556,7 +574,8 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .hero-inner { grid-template-columns: 1fr; }
-      .hero-visual { display: none; }
+      .hero-visual { max-width: 300px; margin-top: 8px; }
+      .hero-photo-wrap { aspect-ratio: 1 / 1.04; }
       .hero-name { font-size: 40px; }
       .projects-grid { grid-template-columns: 1fr 1fr; }
       .edu-grid { grid-template-columns: 1fr; }
@@ -712,8 +731,8 @@
           <div class="project-name">UQLM</div>
           <p class="project-desc">Uncertainty Quantification for Language Models — black-box, white-box, LLM Judge &amp; ensemble hallucination detection. Adopted enterprise-wide at CVS Health.</p>
           <div class="project-meta">
-            <span class="meta-item">⭐ 1.1K+ stars</span>
-            <span class="meta-item">⬇️ 18K+ downloads</span>
+            <span class="meta-item">⭐ <span id="stars-uqlm">1.1K+</span> stars</span>
+            <span class="meta-item">⬇️ <span id="dl-uqlm">18K+</span> downloads</span>
           </div>
           <div style="margin-top:10px;"><span class="tag tag-accent" style="font-size:11px;">Published in JMLR</span></div>
         </div>
@@ -725,8 +744,8 @@
           <div class="project-name">LangFair</div>
           <p class="project-desc">Python package for assessing bias &amp; fairness in LLM use cases. Adopted by CHAI as a Responsible AI industry standard. Integrated with the LangChain ecosystem.</p>
           <div class="project-meta">
-            <span class="meta-item">⭐ 250+ stars</span>
-            <span class="meta-item">⬇️ 30K+ downloads</span>
+            <span class="meta-item">⭐ <span id="stars-langfair">250+</span> stars</span>
+            <span class="meta-item">⬇️ <span id="dl-langfair">30K+</span> downloads</span>
           </div>
           <div style="margin-top:10px;">
             <span class="tag tag-accent" style="font-size:11px;">CHAI Standard</span>
@@ -741,7 +760,8 @@
           <div class="project-name">UQpy</div>
           <p class="project-desc">Powerful Python toolbox for modeling uncertainty in physical and mathematical systems. Features GaussianProcessRegression and AdaptiveKriging for Monte Carlo frameworks.</p>
           <div class="project-meta">
-            <span class="meta-item">⬇️ 100K+ downloads</span>
+            <span class="meta-item">⭐ <span id="stars-uqpy">300+</span> stars</span>
+            <span class="meta-item">⬇️ <span id="dl-uqpy">100K+</span> downloads</span>
           </div>
           <div style="margin-top:10px;"><span class="tag" style="font-size:11px;">PyPI · Conda-forge</span></div>
         </div>
@@ -751,11 +771,11 @@
     <!-- Stats Row -->
     <div class="stats-row">
       <div class="stat-cell">
-        <div class="stat-num">1.3K+</div>
+        <div class="stat-num" id="stat-stars">1.3K+</div>
         <div class="stat-lbl">GitHub Stars</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-num">80K+</div>
+        <div class="stat-num" id="stat-downloads">80K+</div>
         <div class="stat-lbl">PyPI Downloads</div>
       </div>
       <div class="stat-cell">
@@ -763,7 +783,7 @@
         <div class="stat-lbl">Publications</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-num">219</div>
+        <div class="stat-num" id="stat-citations">219</div>
         <div class="stat-lbl">Citations</div>
       </div>
     </div>
@@ -778,7 +798,7 @@
         <p class="section-eyebrow">Research</p>
         <h2 class="section-title">Publications</h2>
       </div>
-      <a class="section-link" href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar →</a>
+      <a class="section-link" href="https://scholar.google.com/citations?hl=en&amp;user=U70XbZoAAAAJ" target="_blank" rel="noopener">Google Scholar →</a>
     </div>
     <div class="pub-list">
 
@@ -827,6 +847,42 @@
           <div class="pub-venues">
             <span class="venue-badge venue-gray">Reliability Eng. &amp; System Safety</span>
             <a class="pub-link" href="https://arxiv.org/abs/2308.14220" target="_blank" rel="noopener">arXiv ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">05</div>
+        <div>
+          <div class="pub-title">Active Learning Applied to Automated Physical Systems Increases the Rate of Discovery</div>
+          <div class="pub-authors">M. D. Shields, K. Gurley, R. Catarelli, <strong>M. Chauhan</strong>, M. Ojeda-Tuz, &amp; F. J. Masters (2023)</div>
+          <div class="pub-venues">
+            <span class="venue-badge venue-gray">Scientific Reports</span>
+            <a class="pub-link" href="https://www.nature.com/articles/s41598-023-35257-7" target="_blank" rel="noopener">DOI ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">06</div>
+        <div>
+          <div class="pub-title">UQpy v4.1: Uncertainty Quantification with Python</div>
+          <div class="pub-authors">D. Tsapetis, M. D. Shields, … <strong>M. S. Chauhan</strong>, et al. (2023)</div>
+          <div class="pub-venues">
+            <span class="venue-badge venue-gray">SoftwareX</span>
+            <a class="pub-link" href="https://arxiv.org/abs/2305.09572" target="_blank" rel="noopener">arXiv ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">07</div>
+        <div>
+          <div class="pub-title">UQpy: A General Purpose Python Package and Development Environment for Uncertainty Quantification</div>
+          <div class="pub-authors">A. Olivier, D. G. Giovanis, B. S. Aakash, <strong>M. Chauhan</strong>, L. Vandanapu, &amp; M. D. Shields (2020)</div>
+          <div class="pub-venues">
+            <span class="venue-badge venue-gray">J. Computational Science</span>
+            <a class="pub-link" href="https://www.sciencedirect.com/science/article/abs/pii/S1877750320305056" target="_blank" rel="noopener">DOI ↗</a>
           </div>
         </div>
       </div>
@@ -913,8 +969,69 @@
 </div>
 
 <footer>
-  <p>© 2025 Mohit Singh Chauhan, PhD · Pittsburgh, PA</p>
+  <p>© 2026 Mohit Singh Chauhan, PhD · Pittsburgh, PA</p>
 </footer>
+
+<script>
+(function () {
+  var fmt = function (n) {
+    if (n >= 1e6) return (Math.floor(n / 1e5) / 10) + 'M+';
+    if (n >= 1e3) return (Math.floor(n / 1e2) / 10) + 'K+';
+    return String(n);
+  };
+  var set = function (id, text) {
+    var el = document.getElementById(id);
+    if (el && text) el.textContent = text;
+  };
+  var getJSON = function (url) {
+    return fetch(url).then(function (r) {
+      if (!r.ok) throw new Error(url + ' → ' + r.status);
+      return r.json();
+    });
+  };
+
+  // ── GitHub stars (live) ──
+  var repos = [
+    { repo: 'cvs-health/uqlm', id: 'stars-uqlm' },
+    { repo: 'cvs-health/langfair', id: 'stars-langfair' },
+    { repo: 'SURGroup/UQpy', id: 'stars-uqpy' }
+  ];
+  Promise.all(repos.map(function (r) {
+    return getJSON('https://api.github.com/repos/' + r.repo)
+      .then(function (d) { set(r.id, fmt(d.stargazers_count)); return d.stargazers_count; })
+      .catch(function () { return 0; });
+  })).then(function (counts) {
+    var total = counts.reduce(function (a, b) { return a + b; }, 0);
+    if (counts.every(function (c) { return c > 0; })) set('stat-stars', fmt(total));
+  });
+
+  // ── stats.json: citations + downloads, updated weekly by GitHub Action ──
+  var applyDownloads = function (dl) {
+    var total = 0, ok = 0;
+    ['uqlm', 'langfair', 'uqpy'].forEach(function (p) {
+      var n = Number(dl && dl[p]);
+      if (n > 0) { set('dl-' + p, fmt(n)); total += n; ok++; }
+    });
+    if (ok === 3) set('stat-downloads', fmt(total));
+  };
+  getJSON('stats.json').then(function (d) {
+    if (d.citations) set('stat-citations', String(d.citations));
+    applyDownloads(d.downloads);
+  }).catch(function () { /* keep static fallback */ });
+
+  // ── PyPI all-time downloads (live enhancement via ClickPy public dataset) ──
+  var q = "SELECT project, sum(count) AS total FROM pypi.pypi_downloads " +
+          "WHERE project IN ('uqlm','langfair','uqpy') GROUP BY project FORMAT JSON";
+  getJSON('https://clickpy-clickhouse.clickhouse.com/?user=play&add_http_cors_header=1&query=' +
+          encodeURIComponent(q))
+    .then(function (d) {
+      var dl = {};
+      (d.data || []).forEach(function (row) { dl[row.project] = Number(row.total); });
+      applyDownloads(dl);
+    })
+    .catch(function () { /* stats.json / static values remain */ });
+})();
+</script>
 
 </body>
 </html>
