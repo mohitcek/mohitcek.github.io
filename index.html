@@ -455,6 +455,54 @@
       transition: color 0.2s;
     }
     .pub-link:hover { color: var(--accent); }
+    .pub-group + .pub-group { margin-top: 56px; }
+    .pub-group-title {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      padding-bottom: 14px;
+      margin-bottom: 28px;
+      border-bottom: 1.5px solid var(--text-primary);
+    }
+    .pub-group-count { color: var(--text-muted); font-weight: 600; letter-spacing: 0.04em; }
+    .pub-group-title + .pub-item { padding-top: 0; }
+
+    /* ── AWARDS ── */
+    .awards-lead {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 780px;
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+    .awards-lead strong { color: var(--text-primary); }
+    .awards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .award-tile {
+      background: var(--bg-soft);
+      border: 1.5px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    a.award-tile:hover { border-color: var(--accent); box-shadow: 0 4px 24px rgba(91,76,245,0.08); }
+    .award-medal { font-size: 32px; line-height: 1; }
+    .award-tier { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+    .tier-hm { color: var(--accent); }
+    .tier-gold { color: #8a5a00; }
+    .tier-silver { color: #555b66; }
+    .tier-bronze { color: #8a4b22; }
+    .award-program { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.4; color: var(--text-primary); }
+    .award-for { margin-top: auto; padding-top: 6px; font-size: 12.5px; font-weight: 600; color: var(--text-muted); }
 
     /* ── EDUCATION ── */
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -580,6 +628,7 @@
       .projects-grid { grid-template-columns: 1fr 1fr; }
       .edu-grid { grid-template-columns: 1fr; }
       .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .awards-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 640px) {
       nav { padding: 0 1.5rem; }
@@ -590,6 +639,7 @@
       .hero-name { font-size: 32px; }
       h2.section-title { font-size: 28px; }
       .projects-grid { grid-template-columns: 1fr; }
+      .awards-grid { grid-template-columns: 1fr; }
       .contact-card { padding: 48px 24px; }
       .contact-heading { font-size: 30px; }
     }
@@ -605,6 +655,7 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#opensource">Open Source</a></li>
       <li><a href="#publications">Publications</a></li>
+      <li><a href="#awards">Awards</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact" class="nav-cta">Contact</a></li>
     </ul>
@@ -804,178 +855,232 @@
       <a class="section-link" href="https://scholar.google.com/citations?hl=en&amp;user=U70XbZoAAAAJ" target="_blank" rel="noopener">Google Scholar →</a>
     </div>
     <div class="pub-list">
+      <div class="pub-group">
+        <div class="pub-group-title">AI Research<span class="pub-group-count">6</span></div>
+        <div class="pub-item">
+          <div class="pub-num">01</div>
+          <div>
+            <div class="pub-title">Functional Entropy: Predicting Functional Correctness in LLM-Generated Code with Uncertainty Quantification</div>
+            <div class="pub-authors">D. Bouchard, <strong>M. S. Chauhan</strong>, Z. Ahmad, &amp; H. Ra (2026)</div>
+            <div class="pub-venues">
+              <span class="venue-badge venue-blue">EMNLP 2026 Main</span>
+              <span class="venue-badge venue-green">ACL 2026 SURGeLLM · Oral</span>
+              <a class="pub-link" href="https://aclanthology.org/2026.emnlp-main.8/" target="_blank" rel="noopener">ACL Anthology ↗</a>
+            </div>
+          </div>
+        </div>
 
-      <div class="pub-item">
-        <div class="pub-num">01</div>
-        <div>
-          <div class="pub-title">DECK: A Consistency × Confidence Taxonomy of LLM Hallucinations</div>
-          <div class="pub-authors"><strong>M. S. Chauhan</strong> (2026)</div>
-          <div class="pub-venues">
-            <span class="venue-badge venue-blue">AACL-IJCNLP 2026 Findings</span>
-            <span class="venue-badge venue-green">ICML 2026 AgenticUQ Workshop</span>
-            <a class="pub-link" href="https://arxiv.org/abs/2606.02289" target="_blank" rel="noopener">arXiv ↗</a>
+        <div class="pub-item">
+          <div class="pub-num">02</div>
+          <div>
+            <div class="pub-title">Uncertainty Quantification for Language Models: A Suite of Black-Box, White-Box, LLM Judge, and Ensemble Scorers</div>
+            <div class="pub-authors">D. Bouchard &amp; <strong>M. S. Chauhan</strong> (2025)</div>
+            <div class="pub-venues">
+              <span class="venue-badge venue-blue">TMLR</span>
+              <span class="venue-badge venue-green">NeurIPS 2025 Workshop</span>
+              <a class="pub-link" href="https://arxiv.org/abs/2504.19254" target="_blank" rel="noopener">arXiv ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-num">03</div>
+          <div>
+            <div class="pub-title">Fine-Grained Uncertainty Quantification for Long-Form Language Model Outputs: A Comparative Study</div>
+            <div class="pub-authors">D. Bouchard, <strong>M. S. Chauhan</strong>, V. Bajaj, &amp; D. Skarbrevik (2026)</div>
+            <div class="pub-venues">
+              <span class="venue-badge venue-blue">TMLR</span>
+              <a class="pub-link" href="https://arxiv.org/abs/2602.17431" target="_blank" rel="noopener">arXiv ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-num">04</div>
+          <div>
+            <div class="pub-title">DECK: A Consistency × Confidence Taxonomy of LLM Hallucinations</div>
+            <div class="pub-authors"><strong>M. S. Chauhan</strong> (2026)</div>
+            <div class="pub-venues">
+              <span class="venue-badge venue-blue">AACL-IJCNLP 2026 Findings</span>
+              <span class="venue-badge venue-green">ICML 2026 AgenticUQ Workshop</span>
+              <a class="pub-link" href="https://aclanthology.org/2026.findings-aacl.164/" target="_blank" rel="noopener">ACL Anthology ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-num">05</div>
+          <div>
+            <div class="pub-title">When Do Supervised UQ Ensembles Improve LLM Hallucination Detection? A Robustness Study</div>
+            <div class="pub-authors"><strong>M. S. Chauhan</strong>, V. Gyanchandani, &amp; D. Bouchard (2026)</div>
+            <div class="pub-venues">
+              <span class="venue-badge venue-blue">AACL-IJCNLP 2026 Findings</span>
+              <a class="pub-link" href="https://aclanthology.org/2026.findings-aacl.159/" target="_blank" rel="noopener">ACL Anthology ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-num">06</div>
+          <div>
+            <div class="pub-title">Beyond Single-Turn Confidence: Trajectory-Adapted Uncertainty Quantification for LLM Agents</div>
+            <div class="pub-authors">D. Bouchard &amp; <strong>M. S. Chauhan</strong> (2026)</div>
+            <div class="pub-venues">
+              <span class="venue-badge venue-gray">Preprint</span>
+              <a class="pub-link" href="https://arxiv.org/abs/2608.11552" target="_blank" rel="noopener">arXiv ↗</a>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="pub-item">
-        <div class="pub-num">02</div>
-        <div>
-          <div class="pub-title">When Do Supervised UQ Ensembles Improve LLM Hallucination Detection? A Robustness Study</div>
-          <div class="pub-authors"><strong>M. S. Chauhan</strong>, V. Gyanchandani, &amp; D. Bouchard (2026)</div>
-          <div class="pub-venues">
-            <span class="venue-badge venue-blue">AACL-IJCNLP 2026 Findings</span>
-            <a class="pub-link" href="https://arxiv.org/abs/2608.24492" target="_blank" rel="noopener">arXiv ↗</a>
+      <div class="pub-group">
+        <div class="pub-group-title">Open Source Toolkits<span class="pub-group-count">4</span></div>
+        <div class="pub-item">
+          <div class="pub-num">01</div>
+          <div>
+            <div class="pub-title">UQLM: A Python Package for Uncertainty Quantification in Large Language Models</div>
+            <div class="pub-authors">D. Bouchard, <strong>M. S. Chauhan</strong>, D. Skarbrevik, H. Ra, V. Bajaj, &amp; Z. Ahmad (2026)</div>
+            <div class="pub-venues">
+              <span class="venue-badge venue-blue">JMLR</span>
+              <a class="pub-link" href="https://arxiv.org/abs/2507.06196" target="_blank" rel="noopener">arXiv ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-num">02</div>
+          <div>
+            <div class="pub-title">UQpy: A General Purpose Python Package and Development Environment for Uncertainty Quantification</div>
+            <div class="pub-authors">A. Olivier, D. G. Giovanis, B. S. Aakash, <strong>M. Chauhan</strong>, L. Vandanapu, &amp; M. D. Shields (2020)</div>
+            <div class="pub-venues">
+              <span class="venue-badge venue-gray">J. Computational Science</span>
+              <a class="pub-link" href="https://www.sciencedirect.com/science/article/abs/pii/S1877750320305056" target="_blank" rel="noopener">DOI ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-num">03</div>
+          <div>
+            <div class="pub-title">UQpy v4.1: Uncertainty Quantification with Python</div>
+            <div class="pub-authors">D. Tsapetis, M. D. Shields, … <strong>M. S. Chauhan</strong>, et al. (2023)</div>
+            <div class="pub-venues">
+              <span class="venue-badge venue-gray">SoftwareX</span>
+              <a class="pub-link" href="https://arxiv.org/abs/2305.09572" target="_blank" rel="noopener">arXiv ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-num">04</div>
+          <div>
+            <div class="pub-title">LangFair: A Python Package for Assessing Bias and Fairness in LLM Use Cases</div>
+            <div class="pub-authors">D. Bouchard, <strong>M. S. Chauhan</strong>, D. Skarbrevik, V. Bajaj, &amp; Z. Ahmad (2025)</div>
+            <div class="pub-venues">
+              <span class="venue-badge venue-blue">JOSS</span>
+              <a class="pub-link" href="https://joss.theoj.org/papers/10.21105/joss.07570" target="_blank" rel="noopener">DOI ↗</a>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="pub-item">
-        <div class="pub-num">03</div>
-        <div>
-          <div class="pub-title">Functional Entropy: Predicting Functional Correctness in LLM-Generated Code with Uncertainty Quantification</div>
-          <div class="pub-authors">D. Bouchard, <strong>M. S. Chauhan</strong>, Z. Ahmad, &amp; H. Ra (2026)</div>
-          <div class="pub-venues">
-            <span class="venue-badge venue-blue">EMNLP 2026 Main</span>
-            <span class="venue-badge venue-green">ACL 2026 SURGeLLM · Oral</span>
-            <a class="pub-link" href="https://arxiv.org/abs/2605.28500" target="_blank" rel="noopener">arXiv ↗</a>
+      <div class="pub-group">
+        <div class="pub-group-title">Wind Engineering<span class="pub-group-count">4</span></div>
+        <div class="pub-item">
+          <div class="pub-num">01</div>
+          <div>
+            <div class="pub-title">On Active Learning for Gaussian Process-based Global Sensitivity Analysis</div>
+            <div class="pub-authors"><strong>M. S. Chauhan</strong>, M. Ojeda-Tuz, R. Catarelli, K. Gurley, D. Tsapetis, &amp; M. Shields (2024)</div>
+            <div class="pub-venues">
+              <span class="venue-badge venue-gray">Reliability Eng. &amp; System Safety</span>
+              <a class="pub-link" href="https://arxiv.org/abs/2308.14220" target="_blank" rel="noopener">arXiv ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-num">02</div>
+          <div>
+            <div class="pub-title">Active Learning Applied to Automated Physical Systems Increases the Rate of Discovery</div>
+            <div class="pub-authors">M. D. Shields, K. Gurley, R. Catarelli, <strong>M. Chauhan</strong>, M. Ojeda-Tuz, &amp; F. J. Masters (2023)</div>
+            <div class="pub-venues">
+              <span class="venue-badge venue-gray">Scientific Reports</span>
+              <a class="pub-link" href="https://www.nature.com/articles/s41598-023-35257-7" target="_blank" rel="noopener">DOI ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-num">03</div>
+          <div>
+            <div class="pub-title">Active Machine Learning to Control Second-Order Statistical Characteristics of Flow Fields in Boundary Layer Wind Tunnel Experiments</div>
+            <div class="pub-authors"><strong>M. S. Chauhan</strong>, M. Ojeda-Tuz, R. A. Catarelli, K. R. Gurley, &amp; M. D. Shields (2026)</div>
+            <div class="pub-venues">
+              <span class="venue-badge venue-gray">J. Wind Eng. &amp; Industrial Aerodynamics</span>
+              <a class="pub-link" href="https://doi.org/10.1016/j.jweia.2026.106600" target="_blank" rel="noopener">DOI ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-num">04</div>
+          <div>
+            <div class="pub-title">Modulating Higher-Order Statistics of Turbulent Boundary Layer Wind Fields Using Randomized Grid Roughness</div>
+            <div class="pub-authors">M. Ojeda-Tuz, <strong>M. Chauhan</strong>, P. Fernández-Cabán, R. Catarelli, M. Shields, &amp; K. Gurley (2025)</div>
+            <div class="pub-venues">
+              <span class="venue-badge venue-gray">J. Wind Eng. &amp; Industrial Aerodynamics</span>
+              <a class="pub-link" href="https://doi.org/10.1016/j.jweia.2025.106042" target="_blank" rel="noopener">DOI ↗</a>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div class="pub-item">
-        <div class="pub-num">04</div>
-        <div>
-          <div class="pub-title">Beyond Single-Turn Confidence: Trajectory-Adapted Uncertainty Quantification for LLM Agents</div>
-          <div class="pub-authors">D. Bouchard &amp; <strong>M. S. Chauhan</strong> (2026)</div>
-          <div class="pub-venues">
-            <span class="venue-badge venue-gray">Preprint</span>
-            <a class="pub-link" href="https://arxiv.org/abs/2608.11552" target="_blank" rel="noopener">arXiv ↗</a>
-          </div>
-        </div>
+<!-- AWARDS -->
+<div class="section-wrap" id="awards">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="section-eyebrow">Recognition</p>
+        <h2 class="section-title">Awards</h2>
       </div>
-
-      <div class="pub-item">
-        <div class="pub-num">05</div>
-        <div>
-          <div class="pub-title">Fine-Grained Uncertainty Quantification for Long-Form Language Model Outputs: A Comparative Study</div>
-          <div class="pub-authors">D. Bouchard, <strong>M. S. Chauhan</strong>, V. Bajaj, &amp; D. Skarbrevik (2026)</div>
-          <div class="pub-venues">
-            <span class="venue-badge venue-blue">TMLR</span>
-            <a class="pub-link" href="https://arxiv.org/abs/2602.17431" target="_blank" rel="noopener">arXiv ↗</a>
-          </div>
-        </div>
+    </div>
+    <p class="awards-lead"><strong>UQLM and LangFair</strong>, the open-source hallucination-detection and bias-evaluation toolkits I co-developed, helped <strong>CVS Health</strong> win four awards in 2026.</p>
+    <div class="awards-grid">
+      <a class="award-tile" href="https://www.fastcompany.com/innovation-by-design/list" target="_blank" rel="noopener">
+        <div class="award-medal">🏅</div>
+        <div class="award-tier tier-hm">Honorable Mention</div>
+        <div class="award-program">Fast Company Innovation by Design 2026</div>
+        <div class="award-for">For UQLM &amp; LangFair ↗</div>
+      </a>
+      <a class="award-tile" href="https://www.3blmedia.com/news/cvs-health-earns-global-recognition-industry-leading-ai-and-technology-innovation" target="_blank" rel="noopener">
+        <div class="award-medal">🥇</div>
+        <div class="award-tier tier-gold">Gold</div>
+        <div class="award-program">Stevie® Awards 2026</div>
+        <div class="award-for">For UQLM &amp; LangFair ↗</div>
+      </a>
+      <a class="award-tile" href="https://www.3blmedia.com/news/cvs-health-earns-global-recognition-industry-leading-ai-and-technology-innovation" target="_blank" rel="noopener">
+        <div class="award-medal">🥈</div>
+        <div class="award-tier tier-silver">Silver</div>
+        <div class="award-program">Stevie® Awards 2026</div>
+        <div class="award-for">For UQLM &amp; LangFair ↗</div>
+      </a>
+      <div class="award-tile">
+        <div class="award-medal">🥉</div>
+        <div class="award-tier tier-bronze">Bronze</div>
+        <div class="award-program">Digital Health Awards 2026</div>
+        <div class="award-for">For UQLM &amp; LangFair</div>
       </div>
+    </div>
 
-      <div class="pub-item">
-        <div class="pub-num">06</div>
-        <div>
-          <div class="pub-title">UQLM: A Python Package for Uncertainty Quantification in Large Language Models</div>
-          <div class="pub-authors">D. Bouchard, <strong>M. S. Chauhan</strong>, D. Skarbrevik, H. Ra, V. Bajaj, &amp; Z. Ahmad (2026)</div>
-          <div class="pub-venues">
-            <span class="venue-badge venue-blue">JMLR</span>
-            <a class="pub-link" href="https://arxiv.org/abs/2507.06196" target="_blank" rel="noopener">arXiv ↗</a>
-          </div>
-        </div>
+    <div class="award-card">
+      <div class="award-trophy">🏆</div>
+      <div>
+        <div class="award-title">Edwin D. &amp; Rachel Lowthian Endowed Fellowship — Johns Hopkins University (2017–2018)</div>
+        <div class="award-desc">Competitive merit-based fellowship awarded to incoming PhD students demonstrating exceptional research potential. Provided $83,400 in total support covering full tuition, stipend, and health coverage — awarded by the department chair upon admission.</div>
       </div>
-
-      <div class="pub-item">
-        <div class="pub-num">07</div>
-        <div>
-          <div class="pub-title">Uncertainty Quantification for Language Models: A Suite of Black-Box, White-Box, LLM Judge, and Ensemble Scorers</div>
-          <div class="pub-authors">D. Bouchard &amp; <strong>M. S. Chauhan</strong> (2025)</div>
-          <div class="pub-venues">
-            <span class="venue-badge venue-blue">TMLR</span>
-            <span class="venue-badge venue-green">NeurIPS 2025 Workshop</span>
-            <a class="pub-link" href="https://arxiv.org/abs/2504.19254" target="_blank" rel="noopener">arXiv ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">08</div>
-        <div>
-          <div class="pub-title">LangFair: A Python Package for Assessing Bias and Fairness in LLM Use Cases</div>
-          <div class="pub-authors">D. Bouchard, <strong>M. S. Chauhan</strong>, D. Skarbrevik, V. Bajaj, &amp; Z. Ahmad (2025)</div>
-          <div class="pub-venues">
-            <span class="venue-badge venue-blue">JOSS</span>
-            <a class="pub-link" href="https://joss.theoj.org/papers/10.21105/joss.07570" target="_blank" rel="noopener">DOI ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">09</div>
-        <div>
-          <div class="pub-title">Active Machine Learning to Control Second-Order Statistical Characteristics of Flow Fields in Boundary Layer Wind Tunnel Experiments</div>
-          <div class="pub-authors"><strong>M. S. Chauhan</strong>, M. Ojeda-Tuz, R. A. Catarelli, K. R. Gurley, &amp; M. D. Shields (2026)</div>
-          <div class="pub-venues">
-            <span class="venue-badge venue-gray">J. Wind Eng. &amp; Industrial Aerodynamics</span>
-            <a class="pub-link" href="https://doi.org/10.1016/j.jweia.2026.106600" target="_blank" rel="noopener">DOI ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">10</div>
-        <div>
-          <div class="pub-title">Modulating Higher-Order Statistics of Turbulent Boundary Layer Wind Fields Using Randomized Grid Roughness</div>
-          <div class="pub-authors">M. Ojeda-Tuz, <strong>M. Chauhan</strong>, P. Fernández-Cabán, R. Catarelli, M. Shields, &amp; K. Gurley (2025)</div>
-          <div class="pub-venues">
-            <span class="venue-badge venue-gray">J. Wind Eng. &amp; Industrial Aerodynamics</span>
-            <a class="pub-link" href="https://doi.org/10.1016/j.jweia.2025.106042" target="_blank" rel="noopener">DOI ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">11</div>
-        <div>
-          <div class="pub-title">On Active Learning for Gaussian Process-based Global Sensitivity Analysis</div>
-          <div class="pub-authors"><strong>M. S. Chauhan</strong>, M. Ojeda-Tuz, R. Catarelli, K. Gurley, D. Tsapetis, &amp; M. Shields (2024)</div>
-          <div class="pub-venues">
-            <span class="venue-badge venue-gray">Reliability Eng. &amp; System Safety</span>
-            <a class="pub-link" href="https://arxiv.org/abs/2308.14220" target="_blank" rel="noopener">arXiv ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">12</div>
-        <div>
-          <div class="pub-title">Active Learning Applied to Automated Physical Systems Increases the Rate of Discovery</div>
-          <div class="pub-authors">M. D. Shields, K. Gurley, R. Catarelli, <strong>M. Chauhan</strong>, M. Ojeda-Tuz, &amp; F. J. Masters (2023)</div>
-          <div class="pub-venues">
-            <span class="venue-badge venue-gray">Scientific Reports</span>
-            <a class="pub-link" href="https://www.nature.com/articles/s41598-023-35257-7" target="_blank" rel="noopener">DOI ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">13</div>
-        <div>
-          <div class="pub-title">UQpy v4.1: Uncertainty Quantification with Python</div>
-          <div class="pub-authors">D. Tsapetis, M. D. Shields, … <strong>M. S. Chauhan</strong>, et al. (2023)</div>
-          <div class="pub-venues">
-            <span class="venue-badge venue-gray">SoftwareX</span>
-            <a class="pub-link" href="https://arxiv.org/abs/2305.09572" target="_blank" rel="noopener">arXiv ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">14</div>
-        <div>
-          <div class="pub-title">UQpy: A General Purpose Python Package and Development Environment for Uncertainty Quantification</div>
-          <div class="pub-authors">A. Olivier, D. G. Giovanis, B. S. Aakash, <strong>M. Chauhan</strong>, L. Vandanapu, &amp; M. D. Shields (2020)</div>
-          <div class="pub-venues">
-            <span class="venue-badge venue-gray">J. Computational Science</span>
-            <a class="pub-link" href="https://www.sciencedirect.com/science/article/abs/pii/S1877750320305056" target="_blank" rel="noopener">DOI ↗</a>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </div>
@@ -1021,22 +1126,6 @@
             <span class="edu-year">2016</span>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="award-card">
-      <div class="award-trophy">🏅</div>
-      <div>
-        <div class="award-title">Fast Company 2026 Innovation by Design — Honorable Mention (UQLM &amp; LangFair, CVS Health team)</div>
-        <div class="award-desc">The open-source UQLM and LangFair toolkits also received Stevie Gold and Silver awards and a Digital Health Awards Bronze in 2026.</div>
-      </div>
-    </div>
-
-    <div class="award-card">
-      <div class="award-trophy">🏆</div>
-      <div>
-        <div class="award-title">Edwin D. &amp; Rachel Lowthian Endowed Fellowship — Johns Hopkins University (2017–2018)</div>
-        <div class="award-desc">Competitive merit-based fellowship awarded to incoming PhD students demonstrating exceptional research potential. Provided $83,400 in total support covering full tuition, stipend, and health coverage — awarded by the department chair upon admission.</div>
       </div>
     </div>
   </div>
