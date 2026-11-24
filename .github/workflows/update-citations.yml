@@ -24,7 +24,7 @@ jobs:
       - name: Update stats.json
         run: |
           python - <<'EOF'
-          import json, datetime, re, urllib.parse, urllib.request
+          import json, datetime, re, urllib.request
 
           UA = {"User-Agent": "Mozilla/5.0 (stats-updater; mohitcek.github.io)"}
           PKGS = ["uqlm", "langfair", "uqpy"]
@@ -36,54 +36,54 @@ jobs:
           with open("stats.json") as f:
               stats = json.load(f)
           dl = stats.setdefault("downloads", {})
+          refreshed = []
 
-          # ── Source 1: ClickPy public ClickHouse (all-time, exact) — GET ──
-          try:
-              q = ("SELECT project, sum(count) AS total FROM pypi.pypi_downloads "
-                   "WHERE project IN ('uqlm','langfair','uqpy') "
-                   "GROUP BY project FORMAT JSON")
-              url = ("https://clickpy-clickhouse.clickhouse.com/?user=play&query="
-                     + urllib.parse.quote(q))
-              data = json.loads(get(url))
-              for row in data.get("data", []):
-                  n = int(row["total"])
-                  if n > 0:
-                      dl[row["project"]] = n
-              print("ClickPy downloads:", dl)
-          except Exception as e:
-              print(f"ClickPy fetch failed: {e}")
-
-          # ── Source 2 (fallback): pepy.tech badge (all-time, rounded) ──
+          # ── Downloads: pepy.tech badge (all-time, rounded). Refresh every run;
+          #    keep the previous value only when the fetch itself fails. ──
           MULT = {"": 1, "k": 1_000, "M": 1_000_000}
           for pkg in PKGS:
-              if dl.get(pkg, 0) > 0:
-                  continue
               try:
                   svg = get(f"https://static.pepy.tech/badge/{pkg}")
                   for txt in re.findall(r">([^<>]+)</text>", svg):
                       m = re.fullmatch(r"([\d.]+)\s*([kM]?)", txt.strip())
                       if m:
-                          dl[pkg] = int(float(m.group(1)) * MULT[m.group(2)])
+                          n = int(float(m.group(1)) * MULT[m.group(2)])
+                          if n > 0:
+                              dl[pkg] = n
+                              refreshed.append("downloads." + pkg)
                           break
-                  print(f"pepy {pkg}:", dl.get(pkg))
               except Exception as e:
-                  print(f"pepy fetch failed for {pkg}: {e}")
+                  print(f"::warning::pepy fetch failed for {pkg}: {e}")
 
-          # ── Google Scholar citations ──
+          # ── Citations: public Scholar profile first, scholarly as fallback ──
+          cites = None
           try:
-              from scholarly import scholarly
-              author = scholarly.search_author_id("U70XbZoAAAAJ")
-              author = scholarly.fill(author, sections=["basics", "indices"])
-              citations = author.get("citedby")
-              if citations:
-                  stats["citations"] = citations
-              print("Citations:", citations)
+              page = get("https://scholar.google.com/citations?hl=en&user=U70XbZoAAAAJ")
+              vals = re.findall(r'class="gsc_rsb_std">(\d+)<', page)
+              if vals:
+                  cites = int(vals[0])
           except Exception as e:
-              print(f"Scholar fetch failed, keeping old value: {e}")
+              print(f"Scholar page fetch failed: {e}")
+          if cites is None:
+              try:
+                  from scholarly import scholarly
+                  author = scholarly.fill(scholarly.search_author_id("U70XbZoAAAAJ"),
+                                          sections=["basics", "indices"])
+                  cites = author.get("citedby")
+              except Exception as e:
+                  print(f"scholarly fetch failed: {e}")
+          if cites:
+              stats["citations"] = cites
+              refreshed.append("citations")
+          else:
+              print(f"::warning::Citations not refreshed; keeping {stats.get('citations')}")
 
-          stats["updated"] = datetime.date.today().isoformat()
+          print("Refreshed:", refreshed or "nothing")
+          if refreshed:
+              stats["updated"] = datetime.date.today().isoformat()
           with open("stats.json", "w") as f:
               json.dump(stats, f, indent=2)
+              f.write("\n")
           EOF
 
       - name: Commit if changed

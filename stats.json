@@ -1,9 +1,9 @@
 {
-  "citations": 270,
+  "citations": 310,
   "downloads": {
-    "uqlm": 54000,
-    "langfair": 45000,
-    "uqpy": 209000
+    "uqlm": 75000,
+    "langfair": 53000,
+    "uqpy": 220000
   },
-  "updated": "2026-11-23"
+  "updated": "2026-11-24"
 }
